@@ -1,0 +1,333 @@
+body {
+  background-color: #aeff96;
+  box-sizing: border-box;
+  font-family: "Open Sans", "Noto Sans JP", sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  padding: 1em;
+  position: relative;
+}
+
+.hidden, .first_hidden {
+  display: none !important;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+#margin_page_bottom {
+  height: 5em;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: calc(100% - 2em);
+}
+
+h2 {
+  font-size: 1.1em;
+  margin: 0.2em 0;
+}
+
+#front_data_flex {
+  display: flex;
+  column-gap: 1em;
+  flex-wrap: wrap;
+}
+
+#front_data_main, #front_data_birthday, #front_data_region, #front_data_range, #front_result_code {
+  font-family: inherit;
+  font-size: 0.9em;
+  height: 10em;
+  margin-bottom: 1em;
+  width: 25em;
+}
+
+#front_data_range {
+  height: 1.8em;
+}
+
+#front_table_range {
+  width: 100%;
+}
+#front_table_range td {
+  width: 50%;
+}
+
+#front_continue, #front_hide {
+  width: 15em;
+}
+
+body.front_saving {
+  background-color: white;
+  width: 430px;
+  margin: 0;
+  padding: 0;
+}
+
+.front_saving_page_A4 {
+  height: 1130px;
+  page-break-inside: avoid;
+  page-break-after: always;
+  width: 800px;
+}
+.front_saving_page_A4 .front_card.front_saving {
+  transform: scale(0.95);
+}
+
+*:not(.front_saving_page_A4) > .front_card.front_saving {
+  page-break-inside: avoid;
+  page-break-after: always;
+}
+
+.front_card.front_saving {
+  border: none;
+  margin: 0;
+}
+
+button {
+  background-color: #ddd;
+  border: 1px solid #888;
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  height: 2.2em;
+  padding: 1px 4px;
+}
+
+.hover_sweep_to_right {
+  display: inline-block;
+  vertical-align: middle;
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+}
+.hover_sweep_to_right#front_continue, .hover_sweep_to_right#front_hide {
+  transition: color 0.3s;
+}
+.hover_sweep_to_right#front_continue::before, .hover_sweep_to_right#front_hide::before {
+  background-color: limegreen;
+  transition: transform 0.3s ease-out;
+}
+.hover_sweep_to_right::before {
+  border-radius: 3px;
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 1px;
+  left: 1px;
+  right: 1px;
+  bottom: 1px;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+}
+.hover_sweep_to_right:hover, .hover_sweep_to_right:active {
+  color: white;
+}
+.hover_sweep_to_right:hover::before, .hover_sweep_to_right:active::before {
+  transform: scaleX(1);
+}
+
+.front_card {
+  background-color: white;
+  border: 3px solid black;
+  box-sizing: border-box;
+  display: grid;
+  float: left;
+  grid-template-rows: 2em max-content max-content 2.9em 13em max-content auto;
+  height: 566px;
+  margin: 1em;
+  overflow: hidden;
+  padding: 0.5em;
+  position: relative;
+  width: 400px;
+}
+
+.card_top {
+  align-items: center;
+  display: flex;
+  height: max-content;
+  justify-content: space-between;
+}
+.card_top .card_top_left {
+  font-size: 1.3em;
+  color: #333;
+}
+.card_top .card_top_right {
+  display: flex;
+  font-size: 1.3em;
+}
+.card_top .card_top_right_icon {
+  align-items: center;
+  background-color: #6677cc;
+  border: 3px solid #333;
+  box-sizing: border-box;
+  color: white;
+  display: inline-flex;
+  height: 1.5em;
+  justify-content: center;
+  line-height: 1.1em;
+  margin: 0 0.15em;
+  padding: 2px;
+  text-align: center;
+  width: 1.5em;
+}
+.card_top .card_top_right_icon.card_top_right_icon_zodiac img {
+  filter: invert(100%);
+  transform: scale(0.85);
+}
+.card_top .card_top_right_icon.card_top_right_icon_large {
+  font-weight: 600;
+  padding: 1px;
+  width: 4.5em;
+}
+.card_top .card_top_right_icon img {
+  max-height: 1.1em;
+  max-width: 1.1em;
+  width: 100%;
+  object-fit: contain;
+}
+
+hr.card_top_line {
+  margin: 0.4em auto;
+  width: 100%;
+}
+
+.card_bottom {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  grid-row: 7;
+}
+
+/*************************************************/
+.sun {
+  align-items: center;
+  color: #333;
+  display: flex;
+  height: 1.5em;
+  justify-content: space-between;
+}
+.sun img {
+  height: 1.8em;
+}
+.sun span {
+  font-size: 1.3em;
+  padding-top: 0.1em;
+}
+
+.sunrise, .sunset {
+  column-gap: 0.3em;
+  display: flex;
+}
+
+/*************************************************/
+.month, .day, .weekday, .season_time_change,
+.holidays, .anniversaries, .unusual_days, .birthday, .birthday_reminder, .nameday {
+  text-align: center;
+  color: #333;
+}
+
+.month {
+  font-size: 2.3em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.day {
+  -webkit-text-stroke: 7px #444;
+}
+.day .day_color_div {
+  height: 100%;
+  pointer-events: none;
+  text-align: center;
+  width: 23.65em;
+}
+.day .day_color_div img {
+  height: 100%;
+}
+
+.weekday {
+  font-size: 1.8em;
+  grid-row: 6;
+}
+
+.season_time_change {
+  font-size: 1.3em;
+  color: green;
+}
+
+.holidays {
+  font-size: 1.3em;
+  color: red;
+  margin-bottom: 0.3em;
+}
+
+.anniversaries, .celebrations {
+  font-size: 1.3em;
+  color: blue;
+}
+
+/*************************************************/
+.unusual_days {
+  font-size: 1.1em;
+  font-weight: 600;
+  width: 90%;
+  margin: 0.3em;
+  padding: 0.1em;
+  background-color: #6677cc;
+  border: 3px solid #333;
+  text-align: center;
+  color: white;
+}
+
+.birthday img, .birthday_reminder img {
+  height: 1.8em;
+  margin-right: 0.2em;
+}
+.birthday span, .birthday_reminder span {
+  font-size: 1.3em;
+  position: relative;
+  top: -0.2em;
+}
+
+.nameday {
+  background-color: white;
+  font-size: 1.1em;
+  padding: 0 0.1em;
+  z-index: 10;
+}
+
+.week_number {
+  position: absolute;
+  bottom: 0.3em;
+  left: 0.3em;
+}
+
+.year_progress {
+  align-items: center;
+  display: flex;
+  position: absolute;
+  bottom: 0.3em;
+  right: 0.3em;
+}
+.year_progress .year_progress_bar {
+  background-color: #ddd;
+  border-radius: 0.7em;
+  display: inline-block;
+  height: 1.2em;
+  margin-right: 0.4em;
+  overflow: hidden;
+  width: 10em;
+}
+.year_progress .year_progress_bar .year_progress_bar_content {
+  background-color: #6677cc;
+  display: inline-block;
+  height: 100%;
+  width: 35%;
+}
+
+/*# sourceMappingURL=front_style.css.map */
